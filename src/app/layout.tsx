@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -32,6 +33,12 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#020617] text-slate-200">
         {children}
         <WhatsAppButton />
+        {/* HubSpot Embed Code */}
+        <Script
+          id="hs-script-loader"
+          src="//js.hs-scripts.com/51436991.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
