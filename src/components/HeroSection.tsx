@@ -25,13 +25,13 @@ export default function HeroSection() {
       */}
       <div
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "6rem", zIndex: 5 }}
+        style={{ top: "5.5rem", zIndex: 5 }}
       >
         <Image
           src="/logo-kronos-transparente.png"
           alt="Kronos Data"
-          width={110}
-          height={110}
+          width={220}
+          height={220}
           style={{ objectFit: "contain" }}
           priority
         />
