@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function HeroSection() {
   return (
     <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
@@ -21,27 +19,26 @@ export default function HeroSection() {
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
-        {/* Watermark logo — large, behind all text, opacity 4% */}
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        {/* Watermark logo — monumental, centered behind text */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo-kronos.png"
+          alt=""
           aria-hidden="true"
-          style={{ zIndex: -1 }}
-        >
-          <Image
-            src="/logo-kronos.png"
-            alt=""
-            width={2000}
-            height={2000}
-            style={{
-              opacity: 0.08,
-              width: "min(2000px, 90vw)",
-              height: "auto",
-              objectFit: "contain",
-              pointerEvents: "none",
-            }}
-            priority
-          />
-        </div>
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "10000px",
+            height: "auto",
+            opacity: 0.10,
+            pointerEvents: "none",
+            zIndex: -1,
+            objectFit: "contain",
+            userSelect: "none",
+          }}
+        />
 
         {/* Brand badge */}
         <div className="fade-up fade-up-1 inline-flex items-center gap-3 mb-8">
