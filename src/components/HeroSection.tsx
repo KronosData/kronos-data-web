@@ -30,13 +30,14 @@ export default function HeroSection() {
           <Image
             src="/logo-kronos.png"
             alt=""
-            width={900}
-            height={900}
+            width={2000}
+            height={2000}
             style={{
               opacity: 0.08,
-              width: "min(820px, 90vw)",
+              width: "min(2000px, 90vw)",
               height: "auto",
               objectFit: "contain",
+              pointerEvents: "none",
             }}
             priority
           />
