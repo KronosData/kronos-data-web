@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function HeroSection() {
   return (
     <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
@@ -21,20 +19,8 @@ export default function HeroSection() {
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
-        {/* Logo — centerpiece above brand badge */}
-        <div className="fade-up fade-up-1 flex justify-center mb-6">
-          <Image
-            src="/logo-kronos.png"
-            alt="Kronos Data"
-            width={190}
-            height={190}
-            style={{ objectFit: "contain" }}
-            priority
-          />
-        </div>
-
         {/* Brand badge */}
-        <div className="fade-up fade-up-2 inline-flex items-center gap-3 mb-8">
+        <div className="fade-up fade-up-1 inline-flex items-center gap-3 mb-8">
           <span className="w-10 h-px bg-gradient-to-r from-transparent to-blue-500/70" />
           <span className="text-blue-400 text-xs font-semibold tracking-[0.4em] uppercase">
             Kronos Data
@@ -43,7 +29,7 @@ export default function HeroSection() {
         </div>
 
         {/* H1 */}
-        <h1 className="title-glow fade-up fade-up-3 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white mb-7">
+        <h1 className="fade-up fade-up-2 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white mb-7">
           Ingeniería de Eficiencia
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
@@ -52,7 +38,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="fade-up fade-up-4 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-11">
+        <p className="fade-up fade-up-3 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-11">
           Transformamos la estructura de su negocio con Inteligencia de Datos y
           Automatización Estratégica.{" "}
           <span className="text-slate-300 font-medium">

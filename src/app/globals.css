@@ -62,12 +62,6 @@ body {
 .fade-up-4 { animation-delay: 510ms; }
 
 
-/* Subtle blue glow on H1 — drop-shadow only, no color change */
-.title-glow {
-  filter:
-    drop-shadow(0 0 10px rgba(59, 130, 246, 0.35))
-    drop-shadow(0 0 28px rgba(59, 130, 246, 0.15));
-}
 
 .animate-fade-up-success {
   animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
