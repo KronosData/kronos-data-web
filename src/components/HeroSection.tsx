@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
@@ -15,6 +17,25 @@ export default function HeroSection() {
 
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+
+      {/*
+        Logo flotante — position:absolute no desplaza nada.
+        top: 6rem ≈ debajo del navbar fijo (80px + margen).
+        El contenido principal sigue centrado en el eje vertical exactamente igual.
+      */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
+        style={{ top: "6rem", zIndex: 5 }}
+      >
+        <Image
+          src="/logo-kronos-transparente.png"
+          alt="Kronos Data"
+          width={110}
+          height={110}
+          style={{ objectFit: "contain" }}
+          priority
+        />
+      </div>
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
