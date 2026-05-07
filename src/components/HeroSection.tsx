@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6">
+    <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
 
       {/* Dot grid overlay */}
       <div

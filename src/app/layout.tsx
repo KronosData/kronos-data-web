@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
@@ -18,6 +19,11 @@ export const metadata: Metadata = {
   title: "Kronos Data | Ingeniería de Eficiencia y Consultoría Administrativa",
   description:
     "Kronos Data ofrece soluciones de ingeniería de eficiencia y consultoría administrativa para optimizar procesos y maximizar resultados en tu empresa.",
+  icons: {
+    icon: "/logo-kronos.png",
+    shortcut: "/logo-kronos.png",
+    apple: "/logo-kronos.png",
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +37,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#020617] text-slate-200">
+        <Navbar />
         {children}
         <WhatsAppButton />
         {/* HubSpot Embed Code */}
