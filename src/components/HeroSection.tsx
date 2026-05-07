@@ -18,29 +18,16 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* Logo — 2 capas: círculo con glow / triángulo limpio */}
+      {/* Logo escudo — position:absolute, no desplaza ningún elemento */}
       <div
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm)", zIndex: 5, width: 250, height: 250 }}
+        style={{ top: "calc(7rem - 1cm)", zIndex: 5 }}
       >
-        {/* Capa 1 — anillo circular con glow azul eléctrico */}
         <Image
-          src="/logo-kronos-circle.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          style={{
-            objectFit: "contain",
-            filter:
-              "drop-shadow(0 0 7px rgba(59,130,246,0.75)) " +
-              "drop-shadow(0 0 18px rgba(59,130,246,0.35))",
-          }}
-        />
-        {/* Capa 2 — triángulo + puntos, sin filtro, blanco puro */}
-        <Image
-          src="/logo-kronos-triangle.png"
+          src="/logo-kronos-transparente.png"
           alt="Kronos Data"
-          fill
+          width={250}
+          height={250}
           style={{ objectFit: "contain" }}
           priority
         />
