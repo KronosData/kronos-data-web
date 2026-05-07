@@ -22,37 +22,10 @@ export default function HeroSection() {
         style={{ top: "calc(7rem - 1cm)", zIndex: 5, width: "250px", height: "250px" }}
       >
         {/*
-          Capa 1 — arcos con drop-shadow, envoltos en un wrapper con mask radial.
-          La máscara corta todo glow que intente entrar hacia el centro:
-            transparent 44% = oculta hasta 55px del centro (interior del arco)
-            black       50% = muestra desde 62px en adelante (exterior del arco)
-          El glow solo "escapa" hacia el exterior de los segmentos del escudo.
+          Capa 1 — solo los arcos visibles del círculo (overlap con triángulo = 0).
+          drop-shadow focalizado: la luz emana de los segmentos de arco hacia afuera.
+          El blur pequeño (5px) evita que el glow se derrame hacia el interior.
         */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute", inset: 0,
-            maskImage:
-              "radial-gradient(circle at 50% 50%, transparent 44%, black 50%)",
-            WebkitMaskImage:
-              "radial-gradient(circle at 50% 50%, transparent 44%, black 50%)",
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo-kronos-arcs.png"
-            alt=""
-            style={{
-              position: "absolute", inset: 0,
-              width: "100%", height: "100%", objectFit: "contain",
-              filter:
-                "drop-shadow(0 0 7px rgba(59,130,246,0.90)) " +
-                "drop-shadow(0 0 18px rgba(59,130,246,0.40))",
-            }}
-          />
-        </div>
-
-        {/* Capa 2 — arcos limpios encima del wrapper (sin filtro, sin máscara) */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logo-kronos-arcs.png"
@@ -61,10 +34,12 @@ export default function HeroSection() {
           style={{
             position: "absolute", inset: 0,
             width: "100%", height: "100%", objectFit: "contain",
+            filter:
+              "drop-shadow(0 0 5px rgba(59,130,246,0.80)) " +
+              "drop-shadow(0 0 14px rgba(59,130,246,0.35))",
           }}
         />
-
-        {/* Capa 3 — triángulo + puntos azules, limpio, sin filtro */}
+        {/* Capa 2 — triángulo + puntos azules, encima, sin ningún filtro */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logo-kronos-triangle.png"
