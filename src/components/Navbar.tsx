@@ -17,9 +17,9 @@ export default function Navbar() {
       >
         {/* Logo + Brand */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 rounded-xl overflow-hidden ring-1 ring-blue-500/20 group-hover:ring-blue-500/50 transition-all duration-300">
+          <div className="relative w-9 h-9 transition-all duration-300">
             <Image
-              src="/logo-kronos.png"
+              src="/logo-kronos-transparente.png"
               alt="Kronos Data"
               fill
               className="object-contain"
