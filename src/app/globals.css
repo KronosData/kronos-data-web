@@ -63,6 +63,22 @@ body {
 
 
 
+/* Logo ring glow — ::after crea el anillo azul, la imagen no recibe filtro */
+.logo-ring {
+  position: relative;
+}
+.logo-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    0 0 15px 2px rgba(59, 130, 246, 0.70),
+    0 0 32px 4px rgba(59, 130, 246, 0.30);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .animate-fade-up-success {
   animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

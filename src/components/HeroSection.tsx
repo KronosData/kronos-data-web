@@ -20,7 +20,7 @@ export default function HeroSection() {
 
       {/* Logo escudo — position:absolute, no desplaza ningún elemento */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
+        className="logo-ring absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
         style={{ top: "calc(7rem - 1cm)", zIndex: 5 }}
       >
         <Image
