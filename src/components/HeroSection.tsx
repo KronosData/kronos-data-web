@@ -26,13 +26,12 @@ export default function HeroSection() {
         src="/logo-kronos.png"
         alt=""
         aria-hidden="true"
+        className="hero-watermark"
         style={{
           position: "absolute",
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -50%)",
-          width: "min(800px, 90vw)",
-          height: "auto",
           opacity: 0.07,
           pointerEvents: "none",
           zIndex: 0,
