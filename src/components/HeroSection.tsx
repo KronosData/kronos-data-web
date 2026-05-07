@@ -21,7 +21,7 @@ export default function HeroSection() {
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
         style={{ top: "calc(7rem - 1cm)", zIndex: 5, width: "250px", height: "250px" }}
       >
-        {/* Capa 1 — solo el anillo: recibe el glow. drop-shadow sigue la forma del PNG */}
+        {/* Capa 1 — anillo con glow exterior */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logo-kronos-circle.png"
@@ -35,7 +35,17 @@ export default function HeroSection() {
               "drop-shadow(0 0 18px rgba(59,130,246,0.30))",
           }}
         />
-        {/* Capa 2 — triángulo + puntos: encima, sin filtro, blanco puro */}
+        {/* Capa 2 — máscara circular que tapa el glow interior */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: "13%",
+            borderRadius: "50%",
+            background: "#020617",
+          }}
+        />
+        {/* Capa 3 — triángulo + puntos: blanco puro, sin filtro */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logo-kronos-triangle.png"
