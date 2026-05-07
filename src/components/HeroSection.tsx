@@ -31,13 +31,14 @@ export default function HeroSection() {
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -50%)",
-          width: "10000px",
-          minWidth: "10000px",
+          width: "min(800px, 90vw)",
           height: "auto",
-          opacity: 0.04,
+          opacity: 0.07,
           pointerEvents: "none",
           zIndex: 0,
           userSelect: "none",
+          imageRendering: "crisp-edges",
+          filter: "none",
         }}
       />
 
