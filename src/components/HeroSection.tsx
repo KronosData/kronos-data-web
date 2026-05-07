@@ -38,7 +38,10 @@ export default function HeroSection() {
           alt="Kronos Data"
           width={250}
           height={250}
-          style={{ objectFit: "contain" }}
+          style={{
+            objectFit: "contain",
+            filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.6)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.25))",
+          }}
           priority
         />
       </div>
