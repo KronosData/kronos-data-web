@@ -36,8 +36,8 @@ export default function HeroSection() {
         <Image
           src="/logo-kronos-transparente.png"
           alt="Kronos Data"
-          width={180}
-          height={180}
+          width={250}
+          height={250}
           style={{ objectFit: "contain" }}
           priority
         />
