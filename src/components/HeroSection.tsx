@@ -21,7 +21,7 @@ export default function HeroSection() {
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
-        {/* Watermark logo — behind all text, opacity 4% */}
+        {/* Watermark logo — large, behind all text, opacity 4% */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
           aria-hidden="true"
@@ -30,9 +30,13 @@ export default function HeroSection() {
           <Image
             src="/logo-kronos.png"
             alt=""
-            width={400}
-            height={400}
-            style={{ opacity: 0.04 }}
+            width={700}
+            height={700}
+            style={{
+              opacity: 0.04,
+              width: "min(640px, 72vw)",
+              height: "auto",
+            }}
             priority
           />
         </div>
