@@ -23,15 +23,21 @@ export default function HeroSection() {
         top: 6rem ≈ debajo del navbar fijo (80px + margen).
         El contenido principal sigue centrado en el eje vertical exactamente igual.
       */}
+      {/*
+        Logo escudo — position:absolute, no empuja ningún elemento.
+        top: 7rem coloca el logo ligeramente más cerca del badge "Kronos Data"
+        que del fondo del navbar, creando la jerarquía visual correcta.
+        El contenido principal sigue centrado en su eje vertical sin cambios.
+      */}
       <div
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "5.5rem", zIndex: 5 }}
+        style={{ top: "7rem", zIndex: 5 }}
       >
         <Image
           src="/logo-kronos-transparente.png"
           alt="Kronos Data"
-          width={220}
-          height={220}
+          width={180}
+          height={180}
           style={{ objectFit: "contain" }}
           priority
         />
