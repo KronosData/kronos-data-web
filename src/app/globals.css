@@ -61,13 +61,6 @@ body {
 .fade-up-3 { animation-delay: 340ms; }
 .fade-up-4 { animation-delay: 510ms; }
 
-/* Hero watermark — forces 2000px regardless of any container constraint */
-.hero-watermark {
-  width: 2000px !important;
-  min-width: 2000px !important;
-  max-width: none !important;
-  height: auto !important;
-}
 
 /* Subtle blue glow on H1 — drop-shadow only, no color change */
 .title-glow {
