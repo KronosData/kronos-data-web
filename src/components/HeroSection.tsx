@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function HeroSection() {
   return (
     <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
@@ -20,16 +18,32 @@ export default function HeroSection() {
 
       {/* Logo escudo — position:absolute, no desplaza ningún elemento */}
       <div
-        className="logo-aura absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm)", zIndex: 5 }}
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
+        style={{ top: "calc(7rem - 1cm)", zIndex: 5, width: "250px", height: "250px" }}
       >
-        <Image
-          src="/logo-kronos-transparente.png"
+        {/* Capa 1 — solo el anillo: recibe el glow. drop-shadow sigue la forma del PNG */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo-kronos-circle.png"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%", objectFit: "contain",
+            filter:
+              "drop-shadow(0 0 7px rgba(59,130,246,0.75)) " +
+              "drop-shadow(0 0 18px rgba(59,130,246,0.30))",
+          }}
+        />
+        {/* Capa 2 — triángulo + puntos: encima, sin filtro, blanco puro */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo-kronos-triangle.png"
           alt="Kronos Data"
-          width={250}
-          height={250}
-          style={{ objectFit: "contain" }}
-          priority
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%", objectFit: "contain",
+          }}
         />
       </div>
 

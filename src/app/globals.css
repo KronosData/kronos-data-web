@@ -65,22 +65,6 @@ body {
 
 
 
-/* Glow borde circular logo — SIN position:relative (el contenedor ya es absolute) */
-.logo-aura::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: transparent;
-  box-shadow:
-    0 0 18px 3px rgba(59, 130, 246, 0.55),
-    0 0 40px 8px rgba(59, 130, 246, 0.22);
-  z-index: -1;
-  pointer-events: none;
-}
 
 .animate-fade-up-success {
   animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
