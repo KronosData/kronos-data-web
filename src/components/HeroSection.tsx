@@ -16,29 +16,33 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* Main content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      {/*
+        Watermark — direct child of <section> so left/top/transform
+        use the full viewport as reference, not the max-w-4xl container.
+        overflow-hidden on <section> clips the 10000px without scrollbars.
+      */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-kronos.png"
+        alt=""
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "10000px",
+          minWidth: "10000px",
+          height: "auto",
+          opacity: 0.04,
+          pointerEvents: "none",
+          zIndex: 0,
+          userSelect: "none",
+        }}
+      />
 
-        {/* Watermark logo — monumental, centered behind text */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo-kronos.png"
-          alt=""
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "10000px",
-            height: "auto",
-            opacity: 0.10,
-            pointerEvents: "none",
-            zIndex: -1,
-            objectFit: "contain",
-            userSelect: "none",
-          }}
-        />
+      {/* Main content — z-index 10 so it sits above the watermark */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
 
         {/* Brand badge */}
         <div className="fade-up fade-up-1 inline-flex items-center gap-3 mb-8">
