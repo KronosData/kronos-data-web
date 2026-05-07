@@ -31,6 +31,20 @@ export default function HeroSection() {
           style={{ objectFit: "contain" }}
           priority
         />
+        {/* Anillo de energía — div circular coincide con el borde del círculo del logo */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            width: "88%", height: "88%",
+            top: "6%", left: "6%",
+            borderRadius: "50%",
+            boxShadow:
+              "0 0 12px 3px rgba(59,130,246,0.65), " +
+              "0 0 28px 5px rgba(59,130,246,0.25)",
+            pointerEvents: "none",
+          }}
+        />
       </div>
 
       {/* Main content */}
