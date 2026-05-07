@@ -16,38 +16,18 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* Logo escudo — 3 capas, nada se mueve */}
+      {/* Logo escudo — sin luz */}
       <div
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm)", zIndex: 5, width: "250px", height: "250px" }}
+        style={{ top: "calc(7rem - 1cm)", zIndex: 5 }}
       >
-        {/*
-          Capa 1 — solo los arcos visibles del círculo (overlap con triángulo = 0).
-          drop-shadow focalizado: la luz emana de los segmentos de arco hacia afuera.
-          El blur pequeño (5px) evita que el glow se derrame hacia el interior.
-        */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/logo-kronos-arcs.png"
-          alt=""
-          aria-hidden="true"
-          style={{
-            position: "absolute", inset: 0,
-            width: "100%", height: "100%", objectFit: "contain",
-            filter:
-              "drop-shadow(0 0 5px rgba(59,130,246,0.80)) " +
-              "drop-shadow(0 0 14px rgba(59,130,246,0.35))",
-          }}
-        />
-        {/* Capa 2 — triángulo + puntos azules, encima, sin ningún filtro */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo-kronos-triangle.png"
+          src="/logo-kronos-transparente.png"
           alt="Kronos Data"
-          style={{
-            position: "absolute", inset: 0,
-            width: "100%", height: "100%", objectFit: "contain",
-          }}
+          width={250}
+          height={250}
+          style={{ objectFit: "contain", width: "250px", height: "250px" }}
         />
       </div>
 
