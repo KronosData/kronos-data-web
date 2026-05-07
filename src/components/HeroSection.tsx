@@ -31,20 +31,6 @@ export default function HeroSection() {
           style={{ objectFit: "contain" }}
           priority
         />
-        {/* Anillo de energía — medidas calculadas del círculo real del logo */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            width: "50%", height: "50%",
-            top: "25%", left: "25%",
-            borderRadius: "50%",
-            boxShadow:
-              "0 0 12px 3px rgba(59,130,246,0.65), " +
-              "0 0 28px 5px rgba(59,130,246,0.25)",
-            pointerEvents: "none",
-          }}
-        />
       </div>
 
       {/* Main content */}
