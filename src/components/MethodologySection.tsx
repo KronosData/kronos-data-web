@@ -34,7 +34,7 @@ const steps: Step[] = [
 
 export default function MethodologySection() {
   return (
-    <section className="relative py-28 px-6 bg-[#020617] overflow-hidden">
+    <section id="metodologia" className="relative py-28 px-6 bg-[#020617] overflow-hidden">
       {/* Ambient */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/18 to-transparent" />
       <div className="absolute inset-0 pointer-events-none">
