@@ -40,8 +40,8 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-6">
           {[
             { label: "Soluciones", href: "#soluciones" },
-            { label: "Metodología", href: "#metodologia" },
             { label: "Nosotros",   href: "#nosotros"    },
+            { label: "Metodología", href: "#metodologia" },
           ].map((item) => (
             <a
               key={item.href}
