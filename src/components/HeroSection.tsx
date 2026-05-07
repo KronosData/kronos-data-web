@@ -18,30 +18,30 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/*
-        Logo flotante — position:absolute no desplaza nada.
-        top: 6rem ≈ debajo del navbar fijo (80px + margen).
-        El contenido principal sigue centrado en el eje vertical exactamente igual.
-      */}
-      {/*
-        Logo escudo — position:absolute, no empuja ningún elemento.
-        top: 7rem coloca el logo ligeramente más cerca del badge "Kronos Data"
-        que del fondo del navbar, creando la jerarquía visual correcta.
-        El contenido principal sigue centrado en su eje vertical sin cambios.
-      */}
+      {/* Logo — 2 capas: círculo con glow / triángulo limpio */}
       <div
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm)", zIndex: 5 }}
+        style={{ top: "calc(7rem - 1cm)", zIndex: 5, width: 250, height: 250 }}
       >
+        {/* Capa 1 — anillo circular con glow azul eléctrico */}
         <Image
-          src="/logo-kronos-transparente.png"
-          alt="Kronos Data"
-          width={250}
-          height={250}
+          src="/logo-kronos-circle.png"
+          alt=""
+          aria-hidden="true"
+          fill
           style={{
             objectFit: "contain",
-            filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.6)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.25))",
+            filter:
+              "drop-shadow(0 0 7px rgba(59,130,246,0.75)) " +
+              "drop-shadow(0 0 18px rgba(59,130,246,0.35))",
           }}
+        />
+        {/* Capa 2 — triángulo + puntos, sin filtro, blanco puro */}
+        <Image
+          src="/logo-kronos-triangle.png"
+          alt="Kronos Data"
+          fill
+          style={{ objectFit: "contain" }}
           priority
         />
       </div>
