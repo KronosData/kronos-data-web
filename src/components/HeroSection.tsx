@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
@@ -19,6 +21,22 @@ export default function HeroSection() {
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
+        {/* Watermark logo — behind all text, opacity 4% */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          aria-hidden="true"
+          style={{ zIndex: -1 }}
+        >
+          <Image
+            src="/logo-kronos.png"
+            alt=""
+            width={400}
+            height={400}
+            style={{ opacity: 0.04 }}
+            priority
+          />
+        </div>
+
         {/* Brand badge */}
         <div className="fade-up fade-up-1 inline-flex items-center gap-3 mb-8">
           <span className="w-10 h-px bg-gradient-to-r from-transparent to-blue-500/70" />
@@ -28,8 +46,8 @@ export default function HeroSection() {
           <span className="w-10 h-px bg-gradient-to-l from-transparent to-blue-500/70" />
         </div>
 
-        {/* H1 */}
-        <h1 className="fade-up fade-up-2 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white mb-7">
+        {/* H1 — white text + subtle blue glow */}
+        <h1 className="title-glow fade-up fade-up-2 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white mb-7">
           Ingeniería de Eficiencia
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
