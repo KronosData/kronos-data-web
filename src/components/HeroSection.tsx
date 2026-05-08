@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
+    <section className="hero-mesh relative min-h-screen flex flex-col items-center justify-start sm:justify-center overflow-hidden px-6 pt-24">
 
       {/* Dot grid overlay */}
       <div
@@ -16,9 +16,9 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* Logo escudo — 250px, sin cambios */}
+      {/* ── DESKTOP logo — absolute, no afecta flujo ───────── */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
+        className="hidden sm:block absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
         style={{ top: "calc(7rem - 1cm)", zIndex: 5 }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -31,7 +31,20 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Main content — space-y-8 en mobile da aire entre elementos */}
+      {/* ── MOBILE logo — in-flow, aparece SOBRE el texto ───── */}
+      {/* sm:hidden: invisible en desktop, visible en mobile */}
+      <div className="sm:hidden pointer-events-none select-none mt-4 mb-6 z-10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo-kronos-transparente.png"
+          alt="Kronos Data"
+          width={180}
+          height={180}
+          style={{ objectFit: "contain", width: "180px", height: "180px" }}
+        />
+      </div>
+
+      {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center space-y-8 sm:space-y-0 sm:block">
 
         {/* Brand badge */}
@@ -43,7 +56,7 @@ export default function HeroSection() {
           <span className="w-10 h-px bg-gradient-to-l from-transparent to-blue-500/70" />
         </div>
 
-        {/* H1 — tamaño y fuente originales sin tocar */}
+        {/* H1 */}
         <h1 className="fade-up fade-up-2 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white sm:mb-7">
           Ingeniería de Eficiencia
           <br />
