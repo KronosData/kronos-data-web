@@ -47,13 +47,16 @@ export default function ContactForm() {
         </div>
 
         <h3 className="text-xl font-bold text-white mb-5">
-          ¡Registro Exitoso!
+          Solicitud Registrada
         </h3>
 
         <div className="h-px max-w-[120px] mx-auto bg-gradient-to-r from-transparent via-blue-500/35 to-transparent mb-5" />
 
         <p className="text-slate-300 text-sm sm:text-base leading-[1.8] max-w-sm mx-auto">
-          Nos pondremos en contacto contigo pronto.
+          Su requerimiento ha sido registrado. Un consultor especializado de{" "}
+          <span className="text-white font-semibold">Kronos Data</span> se
+          pondrá en contacto con usted en un plazo máximo de{" "}
+          <span className="text-white font-semibold">24 horas hábiles.</span>
         </p>
       </div>
     );
