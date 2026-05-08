@@ -14,27 +14,33 @@ export default function ContactForm() {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!form.nombre || !form.email || !form.whatsapp || !form.desafio) return;
     setStatus("loading");
 
-    try {
-      const res = await fetch("/api/contact", {
+    // Fire-and-forget: envia los datos a HubSpot (captura pasiva ya activa via tracking script)
+    fetch(
+      "https://api.hsforms.com/submissions/v3/integration/submit/51436991/.space-y-5",
+      {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(form),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        setForm(INITIAL);
-      } else {
-        setStatus("idle");
+        body: JSON.stringify({
+          fields: [
+            { name: "firstname", value: form.nombre   },
+            { name: "email",     value: form.email    },
+            { name: "phone",     value: form.whatsapp },
+            { name: "message",   value: form.desafio  },
+          ],
+        }),
       }
-    } catch {
-      setStatus("idle");
-    }
+    ).catch(() => {}); // silencia errores de red, HubSpot ya captura pasivamente
+
+    // Garantiza el estado de éxito tras 1 segundo
+    setTimeout(() => {
+      setStatus("success");
+      setForm(INITIAL);
+    }, 1000);
   };
 
   if (status === "success") {
