@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "loading" | "success";
 
-const INITIAL = { nombre: "", email: "", whatsapp: "", desafio: "" };
+const INITIAL = { firstname: "", email: "", company: "", message: "" };
 
 export default function ContactForm() {
   const [form, setForm] = useState(INITIAL);
@@ -14,33 +14,21 @@ export default function ContactForm() {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!form.nombre || !form.email || !form.whatsapp || !form.desafio) return;
+    if (!form.firstname || !form.email || !form.company || !form.message) return;
     setStatus("loading");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(form),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        setForm(INITIAL);
-      } else {
-        setStatus("idle");
-      }
-    } catch {
-      setStatus("idle");
-    }
+    // HubSpot passive tracking captures the submit automatically via the tracking script.
+    // We simulate the success state after 1 second.
+    setTimeout(() => {
+      setStatus("success");
+      setForm(INITIAL);
+    }, 1000);
   };
 
   if (status === "success") {
     return (
       <div className="text-center py-10 animate-fade-up-success">
-        {/* Check icon */}
         <div className="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mx-auto mb-7">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,16 +47,13 @@ export default function ContactForm() {
         </div>
 
         <h3 className="text-xl font-bold text-white mb-5">
-          Solicitud Registrada
+          ¡Registro Exitoso!
         </h3>
 
         <div className="h-px max-w-[120px] mx-auto bg-gradient-to-r from-transparent via-blue-500/35 to-transparent mb-5" />
 
         <p className="text-slate-300 text-sm sm:text-base leading-[1.8] max-w-sm mx-auto">
-          Su requerimiento ha sido registrado. Un consultor especializado de{" "}
-          <span className="text-white font-semibold">Kronos Data</span> se
-          pondrá en contacto con usted en un plazo máximo de{" "}
-          <span className="text-white font-semibold">24 horas hábiles.</span>
+          Nos pondremos en contacto contigo pronto.
         </p>
       </div>
     );
@@ -84,9 +69,10 @@ export default function ContactForm() {
           </label>
           <input
             type="text"
+            name="firstname"
             required
-            value={form.nombre}
-            onChange={set("nombre")}
+            value={form.firstname}
+            onChange={set("firstname")}
             placeholder="Nombre Completo"
             className="input-elite"
           />
@@ -98,6 +84,7 @@ export default function ContactForm() {
           </label>
           <input
             type="email"
+            name="email"
             required
             value={form.email}
             onChange={set("email")}
@@ -107,36 +94,33 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Row 2: WhatsApp */}
+      {/* Row 2: Empresa */}
       <div className="flex flex-col gap-2">
         <label className="text-[10px] font-semibold tracking-[0.28em] uppercase text-blue-400/70">
-          WhatsApp
+          Empresa
         </label>
-        <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm select-none pointer-events-none">
-            +
-          </span>
-          <input
-            type="tel"
-            required
-            value={form.whatsapp}
-            onChange={set("whatsapp")}
-            placeholder="1 (555) 000-0000"
-            className="input-elite pl-7"
-          />
-        </div>
+        <input
+          type="text"
+          name="company"
+          required
+          value={form.company}
+          onChange={set("company")}
+          placeholder="Nombre de su empresa"
+          className="input-elite"
+        />
       </div>
 
-      {/* Row 3: Desafío */}
+      {/* Row 3: Mensaje */}
       <div className="flex flex-col gap-2">
         <label className="text-[10px] font-semibold tracking-[0.28em] uppercase text-blue-400/70">
-          Descripción del Desafío
+          Mensaje
         </label>
         <textarea
+          name="message"
           required
           rows={4}
-          value={form.desafio}
-          onChange={set("desafio")}
+          value={form.message}
+          onChange={set("message")}
           placeholder="Describa brevemente el principal desafío operativo o de datos que enfrenta su empresa..."
           className="input-elite resize-none"
         />
