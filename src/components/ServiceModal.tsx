@@ -43,11 +43,20 @@ export default function ServiceModal({ title, detail, impact, icon, onClose }: P
 
   const handleBack = () => { setStep("info"); setForm(EMPTY); setStatus("idle"); };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!form.nombre || !form.email || !form.whatsapp || !form.desafio) return;
     setStatus("loading");
-    setTimeout(() => setStatus("success"), 1300);
+    try {
+      const res = await fetch("/api/contact", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(form),
+      });
+      setStatus(res.ok ? "success" : "idle");
+    } catch {
+      setStatus("idle");
+    }
   };
 
   /* Key drives the fade animation: each distinct view gets its own key */
