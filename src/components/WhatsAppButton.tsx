@@ -14,14 +14,13 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
-      className="wa-float fixed bottom-6 right-6 z-50 flex items-center gap-2.5 pl-3.5 pr-4 py-3 rounded-full text-white font-semibold text-sm transition-transform duration-300 hover:scale-105 active:scale-95 shadow-xl"
+      className="wa-float fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center rounded-full text-white transition-transform duration-300 hover:scale-110 active:scale-95 shadow-xl"
       style={{
         background: "linear-gradient(135deg, #25d366 0%, #128c7e 100%)",
         boxShadow: "0 4px 22px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.35)",
       }}
     >
       <WhatsAppIcon />
-      <span className="whitespace-nowrap">¿Dudas? Escríbenos</span>
     </a>
   );
 }
@@ -29,8 +28,8 @@ export default function WhatsAppButton() {
 function WhatsAppIcon() {
   return (
     <svg
-      width="20"
-      height="20"
+      width="26"
+      height="26"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden

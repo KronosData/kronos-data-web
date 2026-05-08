@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="hero-mesh relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
+    <section className="hero-mesh relative min-h-screen flex flex-col items-center justify-start sm:justify-center overflow-hidden px-4 sm:px-6 pt-[340px] sm:pt-24">
 
       {/* Dot grid overlay */}
       <div
@@ -16,7 +16,7 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* Logo escudo — sin luz */}
+      {/* Logo escudo — responsive: 140px mobile, 250px desktop */}
       <div
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
         style={{ top: "calc(7rem - 1cm)", zIndex: 5 }}
@@ -25,26 +25,28 @@ export default function HeroSection() {
         <img
           src="/logo-kronos-transparente.png"
           alt="Kronos Data"
-          width={250}
-          height={250}
-          style={{ objectFit: "contain", width: "250px", height: "250px" }}
+          style={{
+            objectFit: "contain",
+            width: "clamp(140px, 38vw, 250px)",
+            height: "auto",
+          }}
         />
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
 
         {/* Brand badge */}
-        <div className="fade-up fade-up-1 inline-flex items-center gap-3 mb-8">
-          <span className="w-10 h-px bg-gradient-to-r from-transparent to-blue-500/70" />
+        <div className="fade-up fade-up-1 inline-flex items-center gap-3 mb-6 sm:mb-8">
+          <span className="w-8 sm:w-10 h-px bg-gradient-to-r from-transparent to-blue-500/70" />
           <span className="text-blue-400 text-xs font-semibold tracking-[0.4em] uppercase">
             Kronos Data
           </span>
-          <span className="w-10 h-px bg-gradient-to-l from-transparent to-blue-500/70" />
+          <span className="w-8 sm:w-10 h-px bg-gradient-to-l from-transparent to-blue-500/70" />
         </div>
 
-        {/* H1 */}
-        <h1 className="fade-up fade-up-2 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white mb-7">
+        {/* H1 — 3xl mobile → 5xl tablet → 4.5rem desktop */}
+        <h1 className="fade-up fade-up-2 text-3xl sm:text-5xl lg:text-[4.5rem] font-bold leading-[1.25] sm:leading-[1.07] tracking-tight text-white mb-5 sm:mb-7">
           Ingeniería de Eficiencia
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
@@ -53,7 +55,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="fade-up fade-up-3 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-11">
+        <p className="fade-up fade-up-3 text-sm sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-11">
           Transformamos la estructura de su negocio con Inteligencia de Datos y
           Automatización Estratégica.{" "}
           <span className="text-slate-300 font-medium">
@@ -65,7 +67,7 @@ export default function HeroSection() {
         <div className="fade-up fade-up-4">
           <a
             href="#contacto"
-            className="btn-glow inline-flex items-center gap-2.5 px-9 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-full tracking-wide transition-colors duration-300"
+            className="btn-glow inline-flex items-center gap-2.5 px-7 sm:px-9 py-3.5 sm:py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-full tracking-wide transition-colors duration-300"
           >
             Agendar Auditoría Gratuita
             <svg
@@ -87,7 +89,7 @@ export default function HeroSection() {
         </div>
 
         {/* Scroll hint */}
-        <div className="fade-up fade-up-4 mt-16 flex flex-col items-center gap-2 opacity-40">
+        <div className="fade-up fade-up-4 mt-12 sm:mt-16 flex flex-col items-center gap-2 opacity-40">
           <span className="text-slate-500 text-xs tracking-widest uppercase">Explorar</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
