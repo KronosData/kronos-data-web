@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "loading" | "success";
 
-const INITIAL = { firstname: "", email: "", company: "", message: "" };
+const INITIAL = { nombre: "", email: "", whatsapp: "", desafio: "" };
 
 export default function ContactForm() {
   const [form, setForm] = useState(INITIAL);
@@ -14,21 +14,33 @@ export default function ContactForm() {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!form.firstname || !form.email || !form.company || !form.message) return;
+    if (!form.nombre || !form.email || !form.whatsapp || !form.desafio) return;
     setStatus("loading");
-    // HubSpot passive tracking captures the submit automatically via the tracking script.
-    // We simulate the success state after 1 second.
-    setTimeout(() => {
-      setStatus("success");
-      setForm(INITIAL);
-    }, 1000);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setForm(INITIAL);
+      } else {
+        setStatus("idle");
+      }
+    } catch {
+      setStatus("idle");
+    }
   };
 
   if (status === "success") {
     return (
       <div className="text-center py-10 animate-fade-up-success">
+        {/* Check icon */}
         <div className="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mx-auto mb-7">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,10 +84,9 @@ export default function ContactForm() {
           </label>
           <input
             type="text"
-            name="firstname"
             required
-            value={form.firstname}
-            onChange={set("firstname")}
+            value={form.nombre}
+            onChange={set("nombre")}
             placeholder="Nombre Completo"
             className="input-elite"
           />
@@ -87,7 +98,6 @@ export default function ContactForm() {
           </label>
           <input
             type="email"
-            name="email"
             required
             value={form.email}
             onChange={set("email")}
@@ -97,33 +107,36 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Row 2: Empresa */}
+      {/* Row 2: WhatsApp */}
       <div className="flex flex-col gap-2">
         <label className="text-[10px] font-semibold tracking-[0.28em] uppercase text-blue-400/70">
-          Empresa
+          WhatsApp
         </label>
-        <input
-          type="text"
-          name="company"
-          required
-          value={form.company}
-          onChange={set("company")}
-          placeholder="Nombre de su empresa"
-          className="input-elite"
-        />
+        <div className="relative">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm select-none pointer-events-none">
+            +
+          </span>
+          <input
+            type="tel"
+            required
+            value={form.whatsapp}
+            onChange={set("whatsapp")}
+            placeholder="1 (555) 000-0000"
+            className="input-elite pl-7"
+          />
+        </div>
       </div>
 
-      {/* Row 3: Mensaje */}
+      {/* Row 3: Descripción del Desafío */}
       <div className="flex flex-col gap-2">
         <label className="text-[10px] font-semibold tracking-[0.28em] uppercase text-blue-400/70">
-          Mensaje
+          Descripción del Desafío
         </label>
         <textarea
-          name="message"
           required
           rows={4}
-          value={form.message}
-          onChange={set("message")}
+          value={form.desafio}
+          onChange={set("desafio")}
           placeholder="Describa brevemente el principal desafío operativo o de datos que enfrenta su empresa..."
           className="input-elite resize-none"
         />
