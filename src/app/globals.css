@@ -81,9 +81,10 @@ body {
 
 /* ─── WhatsApp float pulse ───────────────────────────────── */
 
+/* Sin el ring 0 0 0 8px que causaba el cuadrado parpadeante en mobile */
 @keyframes wa-pulse {
   0%, 100% { box-shadow: 0 4px 22px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.35); }
-  50%       { box-shadow: 0 4px 30px rgba(37,211,102,0.70), 0 0 0 8px rgba(37,211,102,0.12), 0 2px 8px rgba(0,0,0,0.35); }
+  50%       { box-shadow: 0 4px 32px rgba(37,211,102,0.70), 0 2px 8px rgba(0,0,0,0.35); }
 }
 
 .wa-float {

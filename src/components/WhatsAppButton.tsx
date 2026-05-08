@@ -1,6 +1,5 @@
 "use client";
 
-// ⚠ Reemplaza este número con el tuyo (solo dígitos, sin + ni espacios)
 const WA_NUMBER  = "TUNUMERO";
 const WA_MESSAGE = "Hola Kronos Data, vi la web y tengo una consulta sobre los Kits de IA";
 
@@ -13,11 +12,9 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
-      className="wa-float fixed bottom-6 right-6 z-50 text-white font-semibold text-sm transition-transform duration-300 hover:scale-105 active:scale-95 shadow-xl
-        /* Mobile: círculo con solo ícono */
-        w-14 h-14 flex items-center justify-center rounded-full
-        /* Desktop: pill con texto */
-        sm:w-auto sm:h-auto sm:flex sm:items-center sm:gap-2.5 sm:pl-3.5 sm:pr-4 sm:py-3 sm:rounded-full"
+      className="wa-float fixed bottom-6 right-6 z-50 flex items-center justify-center rounded-full text-white font-semibold text-sm transition-transform duration-300 hover:scale-105 active:scale-95
+        w-14 h-14
+        sm:w-auto sm:h-auto sm:gap-2.5 sm:pl-3.5 sm:pr-4 sm:py-3"
       style={{
         background: "linear-gradient(135deg, #25d366 0%, #128c7e 100%)",
         boxShadow: "0 4px 22px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.35)",
