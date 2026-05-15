@@ -1,7 +1,7 @@
 "use client";
 
-const WA_NUMBER  = "TUNUMERO";
-const WA_MESSAGE = "Hola Kronos Data, vi la web y tengo una consulta sobre los Kits de IA";
+const WA_NUMBER  = "51937613194";
+const WA_MESSAGE = "Hola Kronos Data, me gustaría recibir más información sobre sus servicios de consultoría.";
 
 export default function WhatsAppButton() {
   const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
