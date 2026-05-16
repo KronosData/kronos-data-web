@@ -304,7 +304,7 @@ export default function ServiceModal({ title, detail, impact, icon, onClose }: P
                 <p className="text-center text-xs text-slate-500">
                   Agende su cita directamente vía{" "}
                   <a
-                    href="https://calendly.com"
+                    href="https://calendly.com/alejandro-kronosdata"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-400/70 hover:text-blue-300 underline underline-offset-2 transition-colors duration-200"

@@ -65,7 +65,7 @@ export default function ContactSection() {
           </div>
 
           <a
-            href="https://calendly.com"
+            href="https://calendly.com/alejandro-kronosdata"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-blue-500/25 text-blue-400/80 hover:text-blue-300 hover:border-blue-400/45 text-sm font-medium transition-all duration-300 hover:bg-blue-500/5"

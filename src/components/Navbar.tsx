@@ -55,7 +55,9 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="#contacto"
+          href="https://calendly.com/alejandro-kronosdata"
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-glow inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-full transition-colors duration-300"
         >
           Agendar Auditoría
