@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-type Status = "idle" | "loading" | "success";
+type Status = "idle" | "loading" | "success" | "error";
 
 const INITIAL = { nombre: "", email: "", whatsapp: "", desafio: "" };
 
@@ -14,33 +14,28 @@ export default function ContactForm() {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!form.nombre || !form.email || !form.whatsapp || !form.desafio) return;
     setStatus("loading");
 
-    // Fire-and-forget: envia los datos a HubSpot (captura pasiva ya activa via tracking script)
-    fetch(
-      "https://api.hsforms.com/submissions/v3/integration/submit/51436991/.space-y-5",
-      {
+    try {
+      const res = await fetch("/api/contact", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fields: [
-            { name: "firstname", value: form.nombre   },
-            { name: "email",     value: form.email    },
-            { name: "phone",     value: form.whatsapp },
-            { name: "message",   value: form.desafio  },
-          ],
-        }),
-      }
-    ).catch(() => {}); // silencia errores de red, HubSpot ya captura pasivamente
+        body:    JSON.stringify(form),
+      });
 
-    // Garantiza el estado de éxito tras 1 segundo
-    setTimeout(() => {
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
       setForm(INITIAL);
-    }, 1000);
+    } catch {
+      setStatus("error");
+    }
   };
 
   if (status === "success") {
@@ -190,6 +185,12 @@ export default function ContactForm() {
           </>
         )}
       </button>
+
+      {status === "error" && (
+        <p className="text-red-400 text-xs text-center leading-relaxed">
+          No pudimos registrar la solicitud. Por favor agenda por Calendly o escrÃ­benos por WhatsApp.
+        </p>
+      )}
 
       <p className="text-slate-600 text-[11px] text-center pt-1">
         Sus datos están protegidos y nunca serán compartidos con terceros.
