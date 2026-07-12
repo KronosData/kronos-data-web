@@ -19,7 +19,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-9 h-9 transition-all duration-300">
             <Image
-              src="/logo-kronos-transparente.png"
+              src="/logo-kronos-glow.png"
               alt="Kronos Data"
               fill
               className="object-contain"

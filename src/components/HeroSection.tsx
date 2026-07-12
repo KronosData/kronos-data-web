@@ -23,7 +23,7 @@ export default function HeroSection() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/logo-kronos-transparente.png"
+          src="/logo-kronos-glow.png"
           alt="Kronos Data"
           width={290}
           height={290}
@@ -36,7 +36,7 @@ export default function HeroSection() {
       <div className="sm:hidden pointer-events-none select-none mt-4 mb-6 z-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/logo-kronos-transparente.png"
+          src="/logo-kronos-glow.png"
           alt="Kronos Data"
           width={180}
           height={180}

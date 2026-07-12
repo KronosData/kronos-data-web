@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   description:
     "Kronos Data ofrece soluciones de ingeniería de eficiencia y consultoría administrativa para optimizar procesos y maximizar resultados en tu empresa.",
   icons: {
-    icon: "/logo-kronos.png",
-    shortcut: "/logo-kronos.png",
-    apple: "/logo-kronos.png",
+    icon: "/logo-kronos-glow.png",
+    shortcut: "/logo-kronos-glow.png",
+    apple: "/logo-kronos-glow.png",
   },
 };
 
