@@ -19,7 +19,7 @@ export default function HeroSection() {
       {/* ── DESKTOP logo — absolute, no afecta flujo ───────── */}
       <div
         className="hidden sm:block absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm - 8px)", zIndex: 5 }}
+        style={{ top: "calc(7rem - 1cm + 11px)", zIndex: 5 }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
