@@ -19,7 +19,7 @@ export default function HeroSection() {
       {/* ── DESKTOP logo — absolute, no afecta flujo ───────── */}
       <div
         className="hidden sm:block absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm + 22px)", zIndex: 5 }}
+        style={{ top: "calc(7rem - 1cm - 8px)", zIndex: 5 }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -27,7 +27,7 @@ export default function HeroSection() {
           alt="Kronos Data"
           width={290}
           height={290}
-          style={{ objectFit: "contain", width: "370px", height: "370px" }}
+          style={{ objectFit: "contain", width: "300px", height: "300px" }}
         />
       </div>
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
           alt="Kronos Data"
           width={180}
           height={180}
-          style={{ objectFit: "contain", width: "220px", height: "220px" }}
+          style={{ objectFit: "contain", width: "175px", height: "175px" }}
         />
       </div>
 
