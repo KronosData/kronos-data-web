@@ -27,7 +27,7 @@ export default function HeroSection() {
           alt="Kronos Data"
           width={290}
           height={290}
-          style={{ objectFit: "contain", width: "290px", height: "290px" }}
+          style={{ objectFit: "contain", width: "370px", height: "370px" }}
         />
       </div>
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
           alt="Kronos Data"
           width={180}
           height={180}
-          style={{ objectFit: "contain", width: "180px", height: "180px" }}
+          style={{ objectFit: "contain", width: "220px", height: "220px" }}
         />
       </div>
 
