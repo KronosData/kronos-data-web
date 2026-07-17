@@ -27,7 +27,13 @@ export default function HeroSection() {
           alt="Kronos Data"
           width={300}
           height={300}
-          style={{ objectFit: "contain", width: "300px", height: "300px", mixBlendMode: "screen" }}
+          style={{
+            objectFit: "contain",
+            width: "300px",
+            height: "300px",
+            maskImage: "radial-gradient(circle, black 72%, transparent 92%)",
+            WebkitMaskImage: "radial-gradient(circle, black 72%, transparent 92%)",
+          }}
         />
       </div>
 
@@ -39,7 +45,13 @@ export default function HeroSection() {
           alt="Kronos Data"
           width={175}
           height={175}
-          style={{ objectFit: "contain", width: "175px", height: "175px", mixBlendMode: "screen" }}
+          style={{
+            objectFit: "contain",
+            width: "175px",
+            height: "175px",
+            maskImage: "radial-gradient(circle, black 72%, transparent 92%)",
+            WebkitMaskImage: "radial-gradient(circle, black 72%, transparent 92%)",
+          }}
         />
       </div>
 
