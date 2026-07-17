@@ -16,36 +16,23 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* ── DESKTOP logo — absolute, no afecta flujo ───────── */}
-      <div
-        className="hidden sm:block absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm + 11px)", zIndex: 5 }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo-kronos-glow.png"
-          alt="Kronos Data"
-          width={290}
-          height={290}
-          style={{ objectFit: "contain", width: "300px", height: "300px" }}
-        />
-      </div>
-
-      {/* ── MOBILE logo — in-flow, aparece SOBRE el texto ───── */}
-      {/* sm:hidden: invisible en desktop, visible en mobile */}
-      <div className="sm:hidden pointer-events-none select-none mt-4 mb-6 z-10">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo-kronos-glow.png"
-          alt="Kronos Data"
-          width={180}
-          height={180}
-          style={{ objectFit: "contain", width: "175px", height: "175px" }}
-        />
-      </div>
-
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center space-y-8 sm:space-y-0 sm:block">
+
+        {/* ── Logo — en el flujo del contenido: con el zoom se agranda
+             y achica junto con toda la landing. Ocupa el espacio entre
+             la barra de navegación y el texto, ligeramente subido. ── */}
+        <div className="pointer-events-none select-none mt-2 sm:-mt-12 sm:mb-6 flex justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-kronos-glow.png"
+            alt="Kronos Data"
+            width={290}
+            height={290}
+            className="w-[175px] h-[175px] sm:w-[280px] sm:h-[280px]"
+            style={{ objectFit: "contain", mixBlendMode: "screen" }}
+          />
+        </div>
 
         {/* Brand badge */}
         <div className="fade-up fade-up-1 inline-flex items-center gap-3 sm:mb-8">

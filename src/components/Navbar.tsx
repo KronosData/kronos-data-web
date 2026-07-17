@@ -23,6 +23,7 @@ export default function Navbar() {
               alt="Kronos Data"
               fill
               className="object-contain"
+              style={{ mixBlendMode: "screen" }}
               priority
             />
           </div>
