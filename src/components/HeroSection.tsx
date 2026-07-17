@@ -16,7 +16,7 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* ── DESKTOP logo — posición absoluta, misma que el logo anterior ── */}
+      {/* ── DESKTOP logo — absolute, no afecta flujo ───────── */}
       <div
         className="hidden sm:block absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
         style={{ top: "calc(7rem - 1cm + 11px)", zIndex: 5 }}
@@ -25,33 +25,22 @@ export default function HeroSection() {
         <img
           src="/logo-kronos-glow.png"
           alt="Kronos Data"
-          width={300}
-          height={300}
-          style={{
-            objectFit: "contain",
-            width: "300px",
-            height: "300px",
-            maskImage: "radial-gradient(circle, black 72%, transparent 92%)",
-            WebkitMaskImage: "radial-gradient(circle, black 72%, transparent 92%)",
-          }}
+          width={290}
+          height={290}
+          style={{ objectFit: "contain", width: "300px", height: "300px" }}
         />
       </div>
 
-      {/* ── MOBILE logo — en flujo, sobre el texto ── */}
-      <div className="sm:hidden pointer-events-none select-none mt-4 mb-2 z-10">
+      {/* ── MOBILE logo — in-flow, aparece SOBRE el texto ───── */}
+      {/* sm:hidden: invisible en desktop, visible en mobile */}
+      <div className="sm:hidden pointer-events-none select-none mt-4 mb-6 z-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logo-kronos-glow.png"
           alt="Kronos Data"
-          width={175}
-          height={175}
-          style={{
-            objectFit: "contain",
-            width: "175px",
-            height: "175px",
-            maskImage: "radial-gradient(circle, black 72%, transparent 92%)",
-            WebkitMaskImage: "radial-gradient(circle, black 72%, transparent 92%)",
-          }}
+          width={180}
+          height={180}
+          style={{ objectFit: "contain", width: "175px", height: "175px" }}
         />
       </div>
 

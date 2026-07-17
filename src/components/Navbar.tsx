@@ -23,10 +23,6 @@ export default function Navbar() {
               alt="Kronos Data"
               fill
               className="object-contain"
-              style={{
-                maskImage: "radial-gradient(circle, black 70%, transparent 92%)",
-                WebkitMaskImage: "radial-gradient(circle, black 70%, transparent 92%)",
-              }}
               priority
             />
           </div>
