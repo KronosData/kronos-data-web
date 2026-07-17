@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="hero-mesh relative min-h-screen flex flex-col items-center justify-start sm:justify-center overflow-hidden px-6 pt-24">
+    <section className="hero-mesh relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-24">
 
       {/* Dot grid overlay */}
       <div
@@ -16,39 +16,27 @@ export default function HeroSection() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-      {/* ── DESKTOP logo — absolute, no afecta flujo ───────── */}
-      <div
-        className="hidden sm:block absolute left-1/2 -translate-x-1/2 pointer-events-none select-none"
-        style={{ top: "calc(7rem - 1cm + 11px)", zIndex: 5 }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo-kronos-glow.png"
-          alt="Kronos Data"
-          width={290}
-          height={290}
-          style={{ objectFit: "contain", width: "300px", height: "300px" }}
-        />
-      </div>
+      {/* ── Logo + texto en un único bloque en flujo ─────────────
+          Al estar juntos en el mismo contenedor, zoom y resize
+          los mueven como una sola unidad — nunca se separan.    */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto text-center flex flex-col items-center">
 
-      {/* ── MOBILE logo — in-flow, aparece SOBRE el texto ───── */}
-      {/* sm:hidden: invisible en desktop, visible en mobile */}
-      <div className="sm:hidden pointer-events-none select-none mt-4 mb-6 z-10">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo-kronos-glow.png"
-          alt="Kronos Data"
-          width={180}
-          height={180}
-          style={{ objectFit: "contain", width: "175px", height: "175px" }}
-        />
-      </div>
-
-      {/* Main content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center space-y-8 sm:space-y-0 sm:block">
+        {/* Logo — responsive, sin distorsión */}
+        <div className="pointer-events-none select-none mb-4 sm:mb-6">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-kronos-glow.png"
+            alt="Kronos Data"
+            style={{
+              objectFit: "contain",
+              width:  "clamp(160px, 22vw, 290px)",
+              height: "clamp(160px, 22vw, 290px)",
+            }}
+          />
+        </div>
 
         {/* Brand badge */}
-        <div className="fade-up fade-up-1 inline-flex items-center gap-3 sm:mb-8">
+        <div className="fade-up fade-up-1 inline-flex items-center gap-3 mb-5 sm:mb-8">
           <span className="w-10 h-px bg-gradient-to-r from-transparent to-blue-500/70" />
           <span className="text-blue-400 text-xs font-semibold tracking-[0.4em] uppercase">
             Kronos Data
@@ -57,7 +45,7 @@ export default function HeroSection() {
         </div>
 
         {/* H1 */}
-        <h1 className="fade-up fade-up-2 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white sm:mb-7">
+        <h1 className="fade-up fade-up-2 text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.07] tracking-tight text-white mb-5 sm:mb-7">
           Ingeniería de Eficiencia
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
@@ -66,7 +54,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="fade-up fade-up-3 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed sm:mb-11">
+        <p className="fade-up fade-up-3 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-11">
           Transformamos la estructura de su negocio con Inteligencia de Datos y
           Automatización Estratégica.{" "}
           <span className="text-slate-300 font-medium">
@@ -100,7 +88,7 @@ export default function HeroSection() {
         </div>
 
         {/* Scroll hint */}
-        <div className="fade-up fade-up-4 sm:mt-16 flex flex-col items-center gap-2 opacity-40">
+        <div className="fade-up fade-up-4 mt-10 sm:mt-14 flex flex-col items-center gap-2 opacity-40">
           <span className="text-slate-500 text-xs tracking-widest uppercase">Explorar</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
